@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux'
+import store from './store'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* Provider를 통해 하위 컴포넌트들에 만들어둔 redux store를 공급, 개별 컴포넌트에서 import 필요 없음 */}
+    <Provider store={store}> 
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
